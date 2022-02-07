@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
     <View><Header title="To-Do List"/></View>
-     <Main/>
+    <Main/>
     </View>
   );
 }

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 
-const AddItem = ({ addItem }) => {
+const AddItem = ({addItem}) => {
   const [getInput, setInput] = useState("");
 
   return (
@@ -10,17 +16,13 @@ const AddItem = ({ addItem }) => {
         style={styles.textInput}
         placeholder="Add Item"
         onChangeText={(value) => setInput(value)}
-        numberOfLines= {2}
       />
-      <View style={styles.btnView}>
-        <Button
-          title="Add"
-          onPress={() => {
-            addItem(getInput);
-          }}
-          color="green"
-        />
-      </View>
+      <TouchableOpacity
+        style={styles.btnView}
+        onPress={() => { console.log(); addItem(getInput)}}
+      >
+        <Text style={styles.btn}> ADD </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,21 +31,31 @@ export default AddItem;
 
 styles = StyleSheet.create({
   addItemView: {
-    flex: 1 / 4,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 30,
+    alignContent: "center",
+    margin: 20,
   },
   textInput: {
-    flex: 3 / 4,
-    marginLeft: 10,
-    borderBottomWidth: 1,
+    borderWidth: 1,
+    borderRadius: 50,
+    width: "75%",
     fontSize: 22,
     color: "black",
+    padding: 10,
   },
   btnView: {
-    flex: 1 / 4,
-    margin: 5,
-    marginTop: 10,
+    justifyContent: "center",
+    borderRadius: 50,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: "orange",
+  },
+  btn: {
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "black",
+    
   },
 });
